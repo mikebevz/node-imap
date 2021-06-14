@@ -12,8 +12,8 @@
   "main": "./lib/Connection",
   "license": "MIT",
   "dependencies": {
-    "utf7": "^1.0.2",
-    "readable-stream": "^3.6.0"
+    "readable-stream": "^3.6.0",
+    "utf7": "^1.0.2"
   },
   "scripts": {
     "test": "node test/test.js"
