@@ -1,5 +1,5 @@
 {
-  "name": "@receiptor/node-imap",
+  "name": "@node/imap",
   "version": "0.9.7",
   "author": "Brian White <mscdex@mscdex.net>",
   "contributors": [
