@@ -1,5 +1,5 @@
 {
-  "name": "node-imap",
+  "name": "@receiptor/node-imap",
   "version": "0.9.6",
   "author": "Brian White <mscdex@mscdex.net>",
   "contributors": [
@@ -16,6 +16,13 @@
     "utf7": "^1.0.2"
   },
   "scripts": {
+    "release": "tsup && npm publish",
+    "release:major": "npm run co:login && npm run build && npm version $(semver $npm_package_version -i major) && npm publish --tag latest",
+    "release:minor": "npm run co:login && npm run build && npm version $(semver $npm_package_version -i minor) && npm publish --tag latest",
+    "release:patch": "npm run co:login && npm run build && npm version $(semver $npm_package_version -i patch) && npm publish --tag latest",
+    "build": "echo 'Built'",
+    "prepare": "npm run co:login && npm run build",
+    "co:login": "aws codeartifact login --tool npm --repository node-imap --domain receiptor-ai --namespace @receiptor",
     "test": "node test/test.js"
   },
   "engines": {
@@ -39,6 +46,8 @@
     "url": "https://github.com/mikebevz/node-imap"
   },
   "devDependencies": {
-    "eslint": "^7.1.0"
+    "eslint": "^7.1.0",
+    "tsup": "^8.0.2",
+    "typescript": "^5.4.5"
   }
 }
