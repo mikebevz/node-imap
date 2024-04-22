@@ -11,6 +11,7 @@
   "description": "A fork of the famous and outdated IMAP module for node.js that makes communicating with IMAP servers easy",
   "main": "./lib/Connection",
   "license": "MIT",
+  "types": "./index.d.ts",
   "dependencies": {
     "readable-stream": "^3.6.0",
     "utf7": "^1.0.2"
