@@ -22,7 +22,7 @@
     "release:patch": "npm run co:login && npm run build && npm version $(semver $npm_package_version -i patch) && npm publish --tag latest",
     "build": "echo 'Built'",
     "prepare": "npm run co:login && npm run build",
-    "co:login": "aws codeartifact login --tool npm --repository node-imap --domain receiptor-ai --domain-owner 004797659942 --region eu-west-3",
+    "co:login": "aws codeartifact login --tool npm --repository packages --domain receiptor-ai --domain-owner 004797659942 --region eu-west-3",
     "test": "node test/test.js"
   },
   "engines": {
