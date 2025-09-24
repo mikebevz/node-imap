@@ -1,6 +1,6 @@
 {
-  "name": "node-imap",
-  "version": "0.9.6",
+  "name": "@receiptor/node-imap",
+  "version": "0.9.30",
   "author": "Brian White <mscdex@mscdex.net>",
   "contributors": [
     {
@@ -11,15 +11,23 @@
   "description": "A fork of the famous and outdated IMAP module for node.js that makes communicating with IMAP servers easy",
   "main": "./lib/Connection",
   "license": "MIT",
+  "types": "./index.d.ts",
   "dependencies": {
     "readable-stream": "^3.6.0",
     "utf7": "^1.0.2"
   },
   "scripts": {
+    "release": "tsup && npm publish",
+    "release:major": "npm run co:login && npm run build && npm version $(semver $npm_package_version -i major) && npm publish --tag latest",
+    "release:minor": "npm run co:login && npm run build && npm version $(semver $npm_package_version -i minor) && npm publish --tag latest",
+    "release:patch": "npm run co:login && npm run build && npm version $(semver $npm_package_version -i patch) && npm publish --tag latest",
+    "build": "echo 'Built'",
+    "prepare": "npm run co:login && npm run build",
+    "co:login": "aws codeartifact login --tool npm --repository packages --domain receiptor-ai --domain-owner 004797659942 --region eu-west-3",
     "test": "node test/test.js"
   },
   "engines": {
-    "node": ">=0.8.0"
+    "node": ">=10.0.0"
   },
   "keywords": [
     "imap",
@@ -39,6 +47,9 @@
     "url": "https://github.com/mikebevz/node-imap"
   },
   "devDependencies": {
-    "eslint": "^7.1.0"
+    "eslint": "^9.1.1",
+    "eslint-plugin-node": "^11.1.0",
+    "tsup": "^8.0.2",
+    "typescript": "^5.4.5"
   }
 }
